@@ -1,14 +1,12 @@
 
 // Flamelink app is always required
-import * as _flamelink from 'flamelink/app';
-const flamelink = _flamelink['default'];
-
+import flamelink from 'flamelink/app';
 // Add additional modules that you want to use
-import 'flamelink/content';
-import 'flamelink/storage';
-import 'flamelink/settings';
-// import 'flamelink/navigation'
-import 'flamelink/users';
+import 'flamelink/cf/content';
+import 'flamelink/cf/storage';
+import 'flamelink/cf/settings';
+import 'flamelink/cf/navigation'
+import 'flamelink/cf/users';
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -58,7 +56,7 @@ export class AngularFlamelink {
 						subscriber.error(error);
 					} else {
 						let single = !!options.entryId;
-						if (data  && data._fl_meta_) {
+						if (data && data._fl_meta_) {
 							if (data._fl_meta_.schemaType === 'single') {
 								single = true;
 							}
